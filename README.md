@@ -106,6 +106,22 @@ POST /query
 
 ---
 
+### 📚 List Memory
+
+```bash
+GET /memory?tag=ui&search=minimal&limit=10
+```
+
+---
+
+### 🧾 Memory Stats
+
+```bash
+GET /memory/stats
+```
+
+---
+
 ## 🧠 Fragment Schema
 
 ```json
@@ -148,6 +164,29 @@ Fully deterministic and tunable.
   }
 }
 ```
+
+---
+
+## 🛠️ Current Tools
+
+### HTTP API
+
+* `POST /memory` - store a fragment
+* `POST /query` - retrieve ranked fragments
+* `GET /memory` - list fragments with filters
+* `GET /memory/:id` - fetch one fragment
+* `DELETE /memory/:id` - delete one fragment
+* `GET /memory/stats` - aggregate memory statistics
+* `GET /health` - health check
+
+### MCP Tools
+
+* `store_memory`
+* `query_memory`
+* `list_memories`
+* `get_memory`
+* `delete_memory`
+* `memory_stats`
 
 ---
 
@@ -203,12 +242,71 @@ fragmenta/
 
 ## 🧩 Roadmap
 
+### Primary Backend Direction
+
+* [ ] Velo-Lite backend as the scalable production backend
+* [ ] Velo-Lite backend with multi-agent shared memory
+* [ ] Velo-Lite namespaces for agent, team, and tenant isolation
+* [ ] Velo-Lite shared channels for cross-agent context exchange
+* [ ] Velo-Lite write conflict resolution and optimistic concurrency
+* [ ] Velo-Lite replication, backup, and recovery workflows
+
+### Next Tools And Functions
+
+* [ ] `update_memory` tool and `PATCH /memory/:id`
+* [ ] `bulk_store_memories` for batched ingestion
+* [ ] `bulk_delete_memories` for cleanup jobs
+* [ ] `search_by_tags` shortcut tool
+* [ ] `export_memories` to JSON/JSONL
+* [ ] `import_memories` from JSON/JSONL
+* [ ] `pin_memory` or protected fragments
+* [ ] `archive_memory` and soft-delete support
+* [ ] `memory_timeline` for chronological inspection
+* [ ] `memory_explain` to show score breakdown per fragment
+
+### Retrieval Improvements
+
 * [ ] Semantic search (optional embeddings)
-* [ ] Memory decay strategies
-* [ ] Multi-agent shared memory
-* [ ] Velo-Lite backend
-* [ ] Visualization UI
+* [ ] Hybrid lexical + semantic ranking
+* [ ] Better exact-match and phrase-match scoring
+* [ ] Per-tag weighting and query boosting
+* [ ] Configurable decay strategies
+* [ ] Deduplication and fragment merging
+
+### Storage And Reliability
+
+* [ ] Default SQLite mode for safer concurrent writes
+* [ ] Storage migrations and schema versioning
+* [ ] Snapshot and backup support
+* [ ] File locking for JSONL mode
+* [ ] Background compaction and repair tools
+
+### Security And Operations
+
+* [ ] API auth token support
+* [ ] Rate limiting
+* [ ] Request audit logging
+* [ ] CORS and host allowlist controls
+* [ ] Configurable request size limits
+* [ ] Safer production defaults
+
+### Developer Experience
+
 * [ ] CLI tool
+* [ ] Visualization UI
+* [ ] OpenAPI spec for the HTTP API
+* [ ] More integration and concurrency tests
+* [ ] Docker image and compose setup
+* [ ] Benchmark suite
+
+### Multi-Agent Memory
+
+* [ ] Multi-agent shared memory
+* [ ] Agent namespaces and tenant isolation
+* [ ] Shared memory rooms or channels
+* [ ] Agent attribution on fragments
+* [ ] Conflict resolution for concurrent writes
+* [ ] Cross-agent memory permissions
 
 ---
 

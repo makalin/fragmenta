@@ -1,0 +1,18 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 3010
+  },
+  "storage": {
+    "type": "jsonl",
+    "path": "data/memory.jsonl"
+  },
+  "scoring": {
+    "recencyWindowSeconds": 2592000,
+    "decayWindowSeconds": 7776000,
+    "frequencySaturation": 10
+  },
+  "logger": {
+    "level": "info"
+  }
+}

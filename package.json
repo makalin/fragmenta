@@ -1,0 +1,17 @@
+{
+  "name": "fragmenta",
+  "version": "0.1.0",
+  "description": "Lightweight, MCP-native memory engine for AI systems.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node --watch src/index.ts",
+    "start": "node dist/index.js",
+    "mcp": "node dist/server.js",
+    "test": "node --test"
+  }
+}
